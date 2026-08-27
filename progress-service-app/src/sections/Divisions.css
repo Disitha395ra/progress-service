@@ -1,0 +1,186 @@
+.divisions-section {
+  background-color: var(--bg-dark);
+}
+
+.text-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.divisions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.divisions-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.division-tab {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.division-tab:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.tab-icon {
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.tab-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tab-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tab-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Active Tab Styles by Division */
+.division-tab.active {
+  border-bottom-width: 4px;
+  box-shadow: var(--shadow-md);
+}
+
+.division-tab.division-sec.active { border-color: var(--sec-color); }
+.division-tab.division-eng.active { border-color: var(--eng-color); }
+.division-tab.division-app.active { border-color: var(--app-color); }
+
+.division-tab.division-sec.active .tab-icon { color: var(--sec-color); }
+.division-tab.division-eng.active .tab-icon { color: var(--eng-color); }
+.division-tab.division-app.active .tab-icon { color: var(--app-color); }
+
+
+.division-content-area {
+  padding: 48px;
+  overflow: hidden;
+}
+
+.division-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.division-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.division-badge.division-sec { background: rgba(56, 189, 248, 0.1); color: var(--sec-color); }
+.division-badge.division-eng { background: rgba(245, 158, 11, 0.1); color: var(--eng-color); }
+.division-badge.division-app { background: rgba(148, 163, 184, 0.1); color: var(--app-color); }
+
+.division-heading {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.division-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.division-features {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.division-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-teal);
+}
+
+.division-image-wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  height: 400px;
+}
+
+.division-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.division-image:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+  .divisions-tabs {
+    grid-template-columns: 1fr;
+  }
+  .division-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .division-image-wrapper {
+    height: 300px;
+  }
+}
+@media (max-width: 768px) {
+  .division-content-area {
+    padding: 24px;
+  }
+}
