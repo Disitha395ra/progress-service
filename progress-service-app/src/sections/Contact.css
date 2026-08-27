@@ -62,4 +62,4 @@
   .contact-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
 }
-@media (max-width: 600px) { .contact-form { padding: 28px 20px; } }
+@media (max-width: 600px) { .contact-form { padding: 24px 16px; } }

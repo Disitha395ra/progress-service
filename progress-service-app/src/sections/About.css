@@ -31,3 +31,6 @@
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .traits-grid { grid-template-columns: 1fr; }
 }
+@media (max-width: 600px) {
+  .about-grid { gap: 32px; }
+}

@@ -184,3 +184,8 @@
     padding: 24px;
   }
 }
+@media (max-width: 600px) {
+  .division-heading { font-size: 1.8rem; }
+  .division-features { grid-template-columns: 1fr; }
+  .division-image-wrapper { height: 220px; }
+}
