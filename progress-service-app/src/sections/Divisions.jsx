@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useRef } from "react"
+import { motion, AnimatePresence, useInView } from "framer-motion"
 import { FiShield, FiTool, FiPackage, FiArrowRight } from "react-icons/fi"
 import "./Divisions.css"
 
@@ -38,30 +38,44 @@ const divisions = [
 
 export default function Divisions() {
   const [activeTab, setActiveTab] = useState(divisions[0].id)
-
   const activeDivision = divisions.find((d) => d.id === activeTab)
+  
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section className="section divisions-section" id="divisions">
+    <section className="section divisions-section" id="divisions" ref={ref}>
       <div className="container">
-        <div className="text-center">
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="section-label">Our Core Divisions</span>
           <h2 className="section-title">The Progress Group</h2>
           <p className="section-subtitle mx-auto">
             Discover the three pillars of excellence that make up the Progress Group. 
             We provide specialized solutions across multiple industries.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="divisions-container">
+        <motion.div 
+          className="divisions-container"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           {/* Tabs */}
           <div className="divisions-tabs">
             {divisions.map((div) => {
               const isActive = activeTab === div.id
               const Icon = div.icon
               return (
-                <button
+                <motion.button
                   key={div.id}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
                   className={`division-tab ${isActive ? "active" : ""} ${div.colorClass}`}
                   onClick={() => setActiveTab(div.id)}
                 >
@@ -70,13 +84,13 @@ export default function Divisions() {
                     <span className="tab-title">{div.title}</span>
                     <span className="tab-subtitle">{div.subtitle}</span>
                   </div>
-                </button>
+                </motion.button>
               )
             })}
           </div>
 
           {/* Content Area */}
-          <div className="division-content-area card">
+          <div className="division-content-area glass-card">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeDivision.id}
@@ -114,7 +128,7 @@ export default function Divisions() {
               </motion.div>
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

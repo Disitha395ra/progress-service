@@ -58,12 +58,16 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <Link to="divisions" smooth={true} duration={700} className="btn btn-primary">
-            Explore Divisions
-          </Link>
-          <Link to="contact" smooth={true} duration={700} className="btn btn-outline">
-            Contact Us
-          </Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link to="divisions" smooth={true} duration={700} className="btn btn-primary">
+              Explore Divisions
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link to="contact" smooth={true} duration={700} className="btn btn-outline">
+              Contact Us
+            </Link>
+          </motion.div>
         </motion.div>
 
         {/* Services tickers */}
@@ -73,18 +77,18 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.7 }}
         >
-          <div className="hero-svc-pill sec">
+          <motion.div className="hero-svc-pill sec" whileHover={{ y: -5, scale: 1.05 }}>
             <FiShield size={16} color="var(--sec-color)" />
             <span>Security Service</span>
-          </div>
-          <div className="hero-svc-pill eng">
+          </motion.div>
+          <motion.div className="hero-svc-pill eng" whileHover={{ y: -5, scale: 1.05 }}>
             <FiTool size={16} color="var(--eng-color)" />
             <span>Progress Engineering</span>
-          </div>
-          <div className="hero-svc-pill app">
+          </motion.div>
+          <motion.div className="hero-svc-pill app" whileHover={{ y: -5, scale: 1.05 }}>
             <FiPackage size={16} color="var(--app-color)" />
             <span>PG Apparels</span>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Stats */}

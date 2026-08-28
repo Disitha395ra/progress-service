@@ -55,46 +55,63 @@ export default function About() {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="traits-grid">
+              <motion.div 
+                className="traits-grid"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+                }}
+              >
                 {traits.map((t) => (
-                  <div className="trait-item" key={t}>
+                  <motion.div 
+                    className="trait-item" 
+                    key={t}
+                    variants={{
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0 }
+                    }}
+                    whileHover={{ scale: 1.05, originX: 0, color: "var(--primary-teal)" }}
+                  >
                     <FiCheckCircle size={16} color="var(--primary)" />
                     <span>{t}</span>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </FadeIn>
           </div>
 
           <div className="about-right">
             <FadeIn delay={0.1}>
-              <div className="about-card glass-card vision-card">
+              <motion.div whileHover={{ scale: 1.03 }} className="about-card glass-card vision-card">
                 <div className="about-card-icon">
                   <FiEye size={22} />
                 </div>
                 <h4>Our Vision</h4>
                 <p>To be the leading total Security solution provider in Sri Lanka â€” trusted, professional, and future-ready.</p>
-              </div>
+              </motion.div>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="about-card glass-card mission-card">
+              <motion.div whileHover={{ scale: 1.03 }} className="about-card glass-card mission-card">
                 <div className="about-card-icon mission">
                   <FiTarget size={22} />
                 </div>
                 <h4>Our Mission</h4>
                 <p>To provide our customers with outstanding service by delivering quality, value, and reliability through a highly trained and dedicated team.</p>
-              </div>
+              </motion.div>
             </FadeIn>
 
             <FadeIn delay={0.3}>
-              <div className="about-card glass-card award-card">
+              <motion.div whileHover={{ scale: 1.03 }} className="about-card glass-card award-card">
                 <div className="about-card-icon award">
                   <FiAward size={22} />
                 </div>
                 <h4>Military Excellence</h4>
                 <p>Led by retired Army Generals and Officers â€” bringing battlefield discipline to the corporate and civilian security landscape.</p>
-              </div>
+              </motion.div>
             </FadeIn>
           </div>
         </div>

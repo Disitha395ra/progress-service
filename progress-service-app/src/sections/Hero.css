@@ -1,11 +1,20 @@
 .hero {
   position: relative;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background: var(--bg-dark);
   overflow: hidden;
   padding-top: 100px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, transparent 50%);
+  animation: floatAnim 10s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-bg-container {
@@ -21,6 +30,8 @@
   background-size: cover;
   background-position: center;
   filter: grayscale(100%);
+  animation: gradientMove 15s ease infinite alternate;
+  transform: scale(1.1);
 }
 
 .hero-content {
@@ -35,16 +46,19 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--bg-gray);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  padding: 6px 16px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 8px 20px;
   font-family: var(--font-heading);
   font-size: 13px;
   font-weight: 700;
   color: #FFFFFF;
   letter-spacing: 1px;
   margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 .badge-dot {
@@ -136,9 +150,10 @@
 .hero-svc-pill.app { border-left: 3px solid var(--app-color); }
 
 .hero-svc-pill:hover {
-  background: var(--border-light);
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
+  background: var(--glass-bg);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transform: translateY(-4px) scale(1.05);
 }
 
 .scroll-indicator {
